@@ -1,3 +1,5 @@
+import pyperclip
+
 class Contact:
     """
     Class that generates new instances of contacts
@@ -74,3 +76,11 @@ class Contact:
         method that returns the contact list
         '''
         return cls.contact_list
+
+    @classmethod
+    def copy_email(cls, number):
+        '''
+        Method that handles the behavior of copying the email to the clipboard
+        '''
+        return pyperclip.copy(cls.find_by_number(number).email)
+    
